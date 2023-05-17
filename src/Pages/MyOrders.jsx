@@ -1,7 +1,10 @@
-import React from 'react'
+
+import { Layout } from '../Components/Layout'
 
 export function MyOrders() {
   return (
-    <div>MyOrders</div>
+    <Layout>
+        My orders
+    </Layout>
   )
 }
