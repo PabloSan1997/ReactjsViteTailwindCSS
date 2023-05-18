@@ -1,6 +1,6 @@
-
+import { ShoppingCartIcon } from '@heroicons/react/24/solid'
 import { NavLink } from "react-router-dom";
-import { MiContexto } from "../../Context";
+import { MiContexto } from "../Context";
 
 
 
@@ -45,8 +45,8 @@ export function Navbar() {
                 <li>
                     <NavLink to="/signin" className={({ isActive }) => isActive ? activeStyle : undefined}>Sign in</NavLink>
                 </li>
-                <li>
-                    🛒 {count}
+                <li className='flex'>
+                    <ShoppingCartIcon className='w-6 h-6 mr-1 text-stone-500'/> {count}
                 </li>
             </ul>
         </nav>

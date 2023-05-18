@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-
+import { PlusIcon} from '@heroicons/react/24/solid'
 import { MiContexto } from "../Context"
 
 
@@ -14,7 +14,7 @@ export function Card({category, title, price, image}) {
             <div 
             className='absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2'
             onClick={()=>setCount(count+1)}
-            >+</div>
+            ><PlusIcon/></div>
         </figure>
         <p className='flex justify-between'>
             <span className='text-sm font-light'>{title.substring(0,20)}</span>
