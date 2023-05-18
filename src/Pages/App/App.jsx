@@ -6,6 +6,7 @@ import { MyOrder } from "../MyOrder";
 import { Signin } from "../Signin";
 import { NotFound } from "../NotFound";
 import { Navbar } from "../../Components/NavBar";
+import { Provedor } from "../../Context";
 
 const Approutes = () => {
   let routes = useRoutes([
@@ -22,10 +23,12 @@ const Approutes = () => {
 function App() {
 
   return (
-    <BrowserRouter>
-      <Approutes />
-      <Navbar />
-    </BrowserRouter>
+    <Provedor>
+      <BrowserRouter>
+        <Approutes />
+        <Navbar />
+      </BrowserRouter>
+    </Provedor>
   )
 }
 

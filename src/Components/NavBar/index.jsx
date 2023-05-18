@@ -1,9 +1,12 @@
+
 import { NavLink } from "react-router-dom";
+import { MiContexto } from "../../Context";
 
 
 
 export function Navbar() {
     const activeStyle = "underline underline-offset-4";
+    const {count} = MiContexto();
     return (
         <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 text-sm font-light top-0">
             <ul className="flex items-center gap-3">
@@ -43,7 +46,7 @@ export function Navbar() {
                     <NavLink to="/signin" className={({ isActive }) => isActive ? activeStyle : undefined}>Sign in</NavLink>
                 </li>
                 <li>
-                    🛒 0
+                    🛒 {count}
                 </li>
             </ul>
         </nav>
