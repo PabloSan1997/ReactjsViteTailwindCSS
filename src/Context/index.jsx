@@ -8,11 +8,22 @@ export function Provedor({children}){
         children: PropTypes.node.isRequired,
     }
     const [count, setCount] = React.useState(0);
+    const [productDetailOpen, setProductDetailOpen] = React.useState(false);
+    const [productToShow, setProducttoShow] = React.useState({});
+
+
+    const openProductItem = () => setProductDetailOpen(true);
+    const closeProductItem = () => setProductDetailOpen(false);
     return(
         <ShoppingContext.Provider value={
             {
                 count,
-                setCount
+                setCount,
+                productDetailOpen,
+                openProductItem,
+                closeProductItem,
+                productToShow,
+                setProducttoShow
             }
         } >
             {children}

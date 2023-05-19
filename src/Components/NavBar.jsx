@@ -17,19 +17,16 @@ export function Navbar() {
                     <NavLink to="/" className={({ isActive }) => isActive ? activeStyle : undefined}>All</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/clothes" className={({ isActive }) => isActive ? activeStyle : undefined}>Clothes</NavLink>
+                    <NavLink to="/clothesmen" className={({ isActive }) => isActive ? activeStyle : undefined}>{"Men's clothes"}</NavLink>
                 </li>
                 <li>
                     <NavLink to="/electronics" className={({ isActive }) => isActive ? activeStyle : undefined}>Electronic</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/furnitures" className={({ isActive }) => isActive ? activeStyle : undefined}>Fornitures</NavLink>
+                    <NavLink to="/jewelery" className={({ isActive }) => isActive ? activeStyle : undefined}>Jewelery</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/toys" className={({ isActive }) => isActive ? activeStyle : undefined}>Toys</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/others" className={({ isActive }) => isActive ? activeStyle : undefined}>Others</NavLink>
+                    <NavLink to="/clothewomen" className={({ isActive }) => isActive ? activeStyle : undefined}>{"Women's clothing"}</NavLink>
                 </li>
             </ul>
             <ul className="flex items-center gap-3">
@@ -46,7 +43,7 @@ export function Navbar() {
                     <NavLink to="/signin" className={({ isActive }) => isActive ? activeStyle : undefined}>Sign in</NavLink>
                 </li>
                 <li className='flex'>
-                    <ShoppingCartIcon className='w-6 h-6 mr-1 text-stone-500'/> {count}
+                    <ShoppingCartIcon className='w-6 h-6 mr-1 text-stone-500'/> <span>{count}</span>
                 </li>
             </ul>
         </nav>
