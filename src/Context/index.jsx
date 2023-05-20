@@ -3,18 +3,22 @@ import PropTypes from "prop-types"
 const ShoppingContext = React.createContext();
 
 
-export function Provedor({children}){
+export function Provedor({ children }) {
     Provedor.propTypes = {
         children: PropTypes.node.isRequired,
     }
     const [count, setCount] = React.useState(0);
     const [productDetailOpen, setProductDetailOpen] = React.useState(false);
     const [productToShow, setProducttoShow] = React.useState({});
-
-
+    const [cardProducts, setCardProducts] = React.useState([]);
     const openProductItem = () => setProductDetailOpen(true);
     const closeProductItem = () => setProductDetailOpen(false);
-    return(
+
+
+    const [checkoutProductDetail, setCheckoutProductDetail] = React.useState(false);
+    const openCheckoutItem = () => setCheckoutProductDetail(true);
+    const closeCheckoutItem = () => setCheckoutProductDetail(false);
+    return (
         <ShoppingContext.Provider value={
             {
                 count,
@@ -23,7 +27,12 @@ export function Provedor({children}){
                 openProductItem,
                 closeProductItem,
                 productToShow,
-                setProducttoShow
+                setProducttoShow,
+                cardProducts,
+                setCardProducts,
+                checkoutProductDetail,
+                openCheckoutItem,
+                closeCheckoutItem
             }
         } >
             {children}
@@ -31,4 +40,4 @@ export function Provedor({children}){
     );
 }
 
-export const MiContexto=()=>React.useContext(ShoppingContext);
+export const MiContexto = () => React.useContext(ShoppingContext);

@@ -4,11 +4,19 @@ import { MiContexto } from "../Context"
 
 
 
+
 export function Card({ category, title, price, image }) {
-  const { setCount, count, openProductItem, setProducttoShow } = MiContexto();
+  const { setCount, count, openProductItem, setProducttoShow, cardProducts, setCardProducts, openCheckoutItem, closeProductItem } = MiContexto();
   const showProduct = () => {
     openProductItem();
     setProducttoShow({ category, title, price, image });
+  }
+  const addProductsToCard = (event ,productData) => {
+    event.stopPropagation();
+    setCardProducts([...cardProducts, productData]);
+    setCount(count + 1);
+    openCheckoutItem();
+    closeProductItem();
   }
   return (
     <div
@@ -20,7 +28,7 @@ export function Card({ category, title, price, image }) {
         <img className='w-full h-full object-cover rounded-lg' src={image} alt="headphones" />
         <div
           className='absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2'
-          onClick={() => setCount(count + 1)}
+          onClick={(event) => addProductsToCard(event, { category, title, price, image })}
         ><PlusIcon /></div>
       </figure>
       <p className='flex justify-between'>
