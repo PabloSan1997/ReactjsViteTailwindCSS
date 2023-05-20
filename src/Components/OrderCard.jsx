@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { XMarkIcon } from '@heroicons/react/24/solid'
-export function OrderCard({  title, price, image }) {
+export function OrderCard({  title, price, image, id, handleDelete  }) {
   return (
     <div className='flex justify-between items-center mb-2'>
         <div className='flex items-center gap-2'>
@@ -12,7 +12,7 @@ export function OrderCard({  title, price, image }) {
         </div>
         <div className='flex items-center gap-2'>
             <p className='text-lg font-medium'>{price}</p>
-            <XMarkIcon className={'w-4 cursor-pointer'}/>
+            <XMarkIcon className={'w-4 cursor-pointer'} onClick={()=> handleDelete(id)}/>
         </div>
     </div>
   )

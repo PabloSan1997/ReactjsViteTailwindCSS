@@ -3,7 +3,11 @@ import { MiContexto } from '../Context'
 import { OrderCard } from './OrderCard';
 
 export function CheckoutSideMenu() {
-    const { checkoutProductDetail, closeCheckoutItem, cardProducts } = MiContexto();
+    const { checkoutProductDetail, closeCheckoutItem, cardProducts, setCardProducts } = MiContexto();
+    const handleDelete=(id)=>{
+        const filterProducts = cardProducts.filter(product=>product.id!=id);
+        setCardProducts([...filterProducts]);
+    }
     return (
         <aside className={`${checkoutProductDetail ? "flex" : "hidden"} flex-col fixed right-[10px] border bg-white border-black rounded-lg w-[360px] h-[calc(100vh-80px)] p-6 bottom-0`}>
             <div className='flex justify-between items-center'>
@@ -17,6 +21,8 @@ export function CheckoutSideMenu() {
                         title={ele.title}
                         image={ele.image}
                         price={ele.price}
+                        id={ele.id}
+                        handleDelete={handleDelete}
                     />
                 ))}
             </div>
