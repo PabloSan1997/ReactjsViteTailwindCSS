@@ -13,7 +13,7 @@ export function MyOrders() {
       </div>
       {order.map(elemento => (
         <Link key={elemento.id} to={`/my-orders/${elemento.id}`}>
-          <OrdersCard totalPrice={elemento.totalPrice} totalProducts={elemento.total} />
+          <OrdersCard totalPrice={elemento.totalPrice} totalProducts={elemento.total} date={elemento.date} />
         </Link>
       ))}
     </Layout>

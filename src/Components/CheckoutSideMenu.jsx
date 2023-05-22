@@ -11,9 +11,10 @@ export function CheckoutSideMenu() {
         setCardProducts([...filterProducts]);
     }
     const handleCheckOut = () => {
+        const newDate = new Date();
         if (cardProducts.length > 0) {
             const orderToAdd = {
-                date: '01.02.23',
+                date: `${newDate.getDay()}/${newDate.getMonth()}/${newDate.getFullYear()}`,
                 products: cardProducts,
                 total: cardProducts.length,
                 totalPrice: totalPrice(cardProducts),
