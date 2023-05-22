@@ -1,9 +1,16 @@
 import React from 'react';
 import PropTypes from "prop-types"
 const ShoppingContext = React.createContext();
-
+const urlApi ="https://fakestoreapi.com/products";
 
 export function Provedor({ children }) {
+    //Llamar items
+    const [items, setItems] = React.useState([]);
+    React.useEffect(() => {
+        fetch(urlApi).then(data => data.json()).then(json => setItems(json));
+    }, []);
+
+
     Provedor.propTypes = {
         children: PropTypes.node.isRequired,
     }
@@ -23,6 +30,7 @@ export function Provedor({ children }) {
     return (
         <ShoppingContext.Provider value={
             {
+                items,
                 count,
                 setCount,
                 productDetailOpen,

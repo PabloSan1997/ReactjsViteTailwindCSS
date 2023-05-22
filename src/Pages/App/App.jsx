@@ -8,6 +8,7 @@ import { NotFound } from "../NotFound";
 import { Navbar } from "../../Components/NavBar";
 import { Provedor } from "../../Context";
 import { CheckoutSideMenu } from "../../Components/CheckoutSideMenu";
+import { CategoryItem } from "../ClothesMen";
 
 const Approutes = () => {
   let routes = useRoutes([
@@ -18,6 +19,7 @@ const Approutes = () => {
     { path: "/my-account", element: <MyAccount /> },
     { path: "/my-order", element: <MyOrder /> },
     { path: "/signin", element: <Signin /> },
+    { path: "/:category", element: <CategoryItem/> },
     { path: "*", element: <NotFound /> },
   ]);
   return routes

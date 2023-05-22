@@ -17,7 +17,7 @@ export function Navbar() {
                     <NavLink to="/" className={({ isActive }) => isActive ? activeStyle : undefined}>All</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/clothesmen" className={({ isActive }) => isActive ? activeStyle : undefined}>{"Men's clothes"}</NavLink>
+                    <NavLink to="/men's clothing" className={({ isActive }) => isActive ? activeStyle : undefined}>{"Men's clothes"}</NavLink>
                 </li>
                 <li>
                     <NavLink to="/electronics" className={({ isActive }) => isActive ? activeStyle : undefined}>Electronic</NavLink>
@@ -26,7 +26,7 @@ export function Navbar() {
                     <NavLink to="/jewelery" className={({ isActive }) => isActive ? activeStyle : undefined}>Jewelery</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/clothewomen" className={({ isActive }) => isActive ? activeStyle : undefined}>{"Women's clothing"}</NavLink>
+                    <NavLink to="/women's clothing" className={({ isActive }) => isActive ? activeStyle : undefined}>{"Women's clothing"}</NavLink>
                 </li>
             </ul>
             <ul className="flex items-center gap-3">

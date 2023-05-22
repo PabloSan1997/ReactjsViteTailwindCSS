@@ -6,7 +6,7 @@ import { MiContexto } from "../Context"
 
 
 export function Card({ category, title, price, image, id }) {
-  const { setCount, count, openProductItem, setProducttoShow, cardProducts, setCardProducts, openCheckoutItem, closeProductItem } = MiContexto();
+  const { setCount, openProductItem, setProducttoShow, cardProducts, setCardProducts, openCheckoutItem, closeProductItem } = MiContexto();
   const showProduct = () => {
     openProductItem();
     setProducttoShow({ category, title, price, image });
@@ -14,7 +14,7 @@ export function Card({ category, title, price, image, id }) {
   const addProductsToCard = (event, productData) => {
     event.stopPropagation();
     setCardProducts([...cardProducts, productData]);
-    setCount(count + 1);
+    setCount(cardProducts.length+1);
     openCheckoutItem();
     closeProductItem();
   }

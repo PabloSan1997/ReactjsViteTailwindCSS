@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 
-import { XMarkIcon } from '@heroicons/react/24/solid'
 export function OrdersCard({ totalPrice, totalProducts }) {
 
     return (

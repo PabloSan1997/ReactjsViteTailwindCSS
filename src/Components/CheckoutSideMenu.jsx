@@ -5,21 +5,24 @@ import { totalPrice } from '../utils';
 import { Link } from 'react-router-dom';
 
 export function CheckoutSideMenu() {
-    const { checkoutProductDetail, closeCheckoutItem, cardProducts, setCardProducts, setOrder, order } = MiContexto();
+    const { checkoutProductDetail, setCount, closeCheckoutItem, cardProducts, setCardProducts, setOrder, order } = MiContexto();
     const handleDelete = (id) => {
         const filterProducts = cardProducts.filter(product => product.id != id);
         setCardProducts([...filterProducts]);
     }
     const handleCheckOut = () => {
-        const orderToAdd = {
-            date: '01.02.23',
-            products: cardProducts,
-            total: cardProducts.length,
-            totalPrice: totalPrice(cardProducts),
-            id:Math.random().toString(32).substring(2,7)
+        if (cardProducts.length > 0) {
+            const orderToAdd = {
+                date: '01.02.23',
+                products: cardProducts,
+                total: cardProducts.length,
+                totalPrice: totalPrice(cardProducts),
+                id: Math.random().toString(32).substring(2, 7)
+            }
+            setOrder([...order, orderToAdd]);
+            setCardProducts([]);
+            setCount(0);
         }
-        setOrder([...order, orderToAdd]);
-        setCardProducts([]);
     }
     return (
         <aside className={`${checkoutProductDetail ? "flex" : "hidden"} flex-col fixed right-[10px] border bg-white border-black rounded-lg w-[360px] h-[calc(100vh-80px)] p-6 bottom-0`}>
