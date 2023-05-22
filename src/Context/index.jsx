@@ -18,6 +18,8 @@ export function Provedor({ children }) {
     const [checkoutProductDetail, setCheckoutProductDetail] = React.useState(false);
     const openCheckoutItem = () => setCheckoutProductDetail(true);
     const closeCheckoutItem = () => setCheckoutProductDetail(false);
+
+    const [order, setOrder] = React.useState([]);
     return (
         <ShoppingContext.Provider value={
             {
@@ -32,7 +34,9 @@ export function Provedor({ children }) {
                 setCardProducts,
                 checkoutProductDetail,
                 openCheckoutItem,
-                closeCheckoutItem
+                closeCheckoutItem,
+                order,
+                setOrder
             }
         } >
             {children}
